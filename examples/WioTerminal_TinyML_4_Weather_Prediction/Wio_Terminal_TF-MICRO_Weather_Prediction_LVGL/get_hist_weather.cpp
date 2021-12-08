@@ -5,7 +5,7 @@ CircularBuffer<float, 72> stack;
 const char* ssid = "";
 const char* password =  "";
 const char* apiKey = ""; 
-extern const char* location = "Shenzhen,CN"; 
+extern const char* location = "95033,US"; 
 char server[] = "api.openweathermap.org";  
 
 int status = WL_IDLE_STATUS; 
@@ -21,7 +21,7 @@ bool setupWIFI() {
     // Set WiFi to station mode and disconnect from an AP if it was previously connected
     WiFi.mode(WIFI_STA);
     WiFi.disconnect();
-    delay(100);
+    delay(200);
 
     WiFi.begin(ssid, password);
  

@@ -1,6 +1,8 @@
 #include "gui.h"
 
 #define HW_TIMER_INTERVAL_US 5000
+#define LV_HOR_RES_MAX 320
+#define LV_VER_RES_MAX 240
 
 static lv_disp_draw_buf_t disp_buf;
 static lv_color_t buf[LV_HOR_RES_MAX * 10];
@@ -120,7 +122,7 @@ bool setupLVGL() {
     lv_obj_set_x(city_label, 115);
     lv_obj_set_y(city_label, 10);
     lv_obj_set_height(city_label, 20);
-    lv_obj_set_width(city_label, 120);
+    lv_obj_set_width(city_label, 140);
     lv_label_set_text(city_label, location);
 
     lv_meter_scale_t * scale = lv_meter_add_scale(rain_meter);

@@ -89,7 +89,7 @@ void run_inference() {
     if(y_type[i] > y_type[maxI])
        maxI = i;
 
-  update_screen(stack[69]*60, stack[71]*1000, stack[70], y_precip*100, maxI);
+  update_screen(stack[69]*60, stack[71]*1000, stack[70]*100, y_precip*100, maxI);
   LogTFT("Waiting\n");
 }
 
@@ -142,6 +142,8 @@ void setup() {
   resolver.AddExpandDims();
   resolver.AddReshape();
   resolver.AddLogistic();
+  resolver.AddSpaceToBatchNd();
+  resolver.AddDepthwiseConv2D();
 
   // Build an interpreter to run the model with.
   static tflite::MicroInterpreter static_interpreter(model, resolver, tensor_arena, kTensorArenaSize, error_reporter);
